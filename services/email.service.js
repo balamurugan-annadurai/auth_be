@@ -12,25 +12,19 @@ const brevo = new BrevoClient({
 // Welcome Email
 // ===============================
 export const sendWelcomeMail = async (email, name) => {
-
     try {
-
         await brevo.transactionalEmails.sendTransacEmail({
-
             sender: {
                 name: process.env.SENDER_NAME,
                 email: process.env.SENDER_EMAIL,
             },
-
             to: [
                 {
                     email,
                     name,
                 },
             ],
-
             subject: "Welcome to Bala Labs",
-
             htmlContent: `
                 <h2>Welcome ${name} 👋</h2>
 
@@ -46,45 +40,32 @@ export const sendWelcomeMail = async (email, name) => {
 
                 <h3>Bala Labs</h3>
             `,
-
         });
-
         console.log("Welcome email sent successfully.");
-
     } catch (error) {
-
         console.log("Failed to send welcome email.");
-
         console.log(error.body || error);
-
     }
-
 };
 
 // ===============================
 // Reset Password Email
 // ===============================
 export const sendResetPasswordMail = async (email, token) => {
-
     try {
-
         const resetLink = `http://localhost:5173/reset-password/${token}`;
 
         await brevo.transactionalEmails.sendTransacEmail({
-
             sender: {
                 name: process.env.BREVO_SENDER_NAME,
                 email: process.env.BREVO_SENDER_EMAIL,
             },
-
             to: [
                 {
                     email,
                 },
             ],
-
             subject: "Reset Your Password",
-
             htmlContent: `
                 <h2>Password Reset Request</h2>
 
@@ -106,17 +87,10 @@ export const sendResetPasswordMail = async (email, token) => {
 
                 <h3>Bala Labs</h3>
             `,
-
         });
-
         console.log("Reset password email sent successfully.");
-
     } catch (error) {
-
         console.log("Failed to send reset password email.");
-
         console.log(error.body || error);
-
     }
-
 };

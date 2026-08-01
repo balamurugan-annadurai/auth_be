@@ -1,8 +1,8 @@
 import User from "../models/user.schema.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { sendResetPasswordMail, sendWelcomeMail } from "../services/nodemailer.services.js";
-// import { sendResetPasswordMail, sendWelcomeMail } from './../services/email.service.js';
+// import { sendResetPasswordMail, sendWelcomeMail } from "../services/nodemailer.services.js";
+import { sendResetPasswordMail, sendWelcomeMail } from './../services/email.service.js';
 
 
 export const register = async (req, res) => {
