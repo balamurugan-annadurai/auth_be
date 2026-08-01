@@ -53,7 +53,7 @@ export const sendWelcomeMail = async (email, name) => {
 // ===============================
 export const sendResetPasswordMail = async (email, token) => {
     try {
-        const resetLink = `https://authdemos.netlify.app/${token}`;
+        const resetLink = `https://authdemos.netlify.app/reset-password/${token}`;
 
         await brevo.transactionalEmails.sendTransacEmail({
             sender: {
