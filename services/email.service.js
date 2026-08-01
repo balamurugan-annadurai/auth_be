@@ -15,8 +15,8 @@ export const sendWelcomeMail = async (email, name) => {
     try {
         await brevo.transactionalEmails.sendTransacEmail({
             sender: {
-                name: process.env.SENDER_NAME,
-                email: process.env.SENDER_EMAIL,
+                name: process.env.BREVO_SENDER_NAME,
+                email: process.env.BREVO_SENDER_EMAIL,
             },
             to: [
                 {
